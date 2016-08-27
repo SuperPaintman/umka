@@ -34,6 +34,12 @@ end
 --------------------------------------------------------------------------------
 -- Strings
 --------------------------------------------------------------------------------
+
+--- Splits string into an array of strings
+-- @param {String} str              The string to split.
+-- @param {String} [separator]      The character to use for separating the string.
+--
+-- @return {String[]}  Returns the array of strings.
 function u.split(str, separator)
   local parts = {}
   local start = 1
