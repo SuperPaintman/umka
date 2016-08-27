@@ -67,6 +67,11 @@ end
 --------------------------------------------------------------------------------
 -- Tables
 --------------------------------------------------------------------------------
+
+--- Checks if value is an array.
+-- @param {Any} value              The string to split.
+--
+-- @return {Boolean}  Returns true if value is an array, else false.
 function u.is_array(value)
   if type(value) ~= "table" then
     return false
