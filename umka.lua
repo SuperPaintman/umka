@@ -86,10 +86,17 @@ function u.is_array(value)
   return true
 end
 
+--- Merge two or more arrays into one
+-- @param {Any[]} main_array        The destination array
+-- @param {...Any[]}                The source arrays
+--
+-- @return {Any[]}  Returns array
 function u.merge_array(main_array, ...)
+  -- Walk arrays
   for i = 1, select("#", ...) do
     local arr = select(i, ...)
 
+    -- Walk values of source array
     for k, v in pairs(arr) do
       table.insert(main_array, v)
     end
