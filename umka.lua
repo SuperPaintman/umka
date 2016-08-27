@@ -155,9 +155,9 @@ function u.merge(main_table, ...)
   end
 end
 
-function u.in_array(t, i)
-  for k, v in ipairs(t) do
-    if v == i then return true end
+function u.in_array(arr, value)
+  for k, v in ipairs(arr) do
+    if v == value then return true end
   end
 
   return false
