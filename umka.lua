@@ -5,6 +5,13 @@ local u = {}
 --------------------------------------------------------------------------------
 -- Numbers
 --------------------------------------------------------------------------------
+
+--- Return random number
+-- @param {Number} [lower=0]              The lower bound.
+-- @param {Number} [upper=1]              The upper bound.
+-- @param {Number|Boolean} [floating=14]  Specify returning a floating-point number.
+--
+-- @return {Number}  Returns the random number.
 function u.random(lower, upper, floating)
   if lower == nil then lower = 0 end
   if upper == nil then upper = 1 end
