@@ -128,6 +128,11 @@ function u.merge_object(main_object, ...)
   return main_object
 end
 
+--- Merge two or more tables into one
+-- @param {Table} main_table       The destination table
+-- @param {...Table}               The source tables
+--
+-- @return {Table}  Returns table
 function u.merge(main_table, ...)
   local is_arr = false
   if #main_table > 0 and u.is_array(main_table) then
