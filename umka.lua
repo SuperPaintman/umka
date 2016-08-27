@@ -105,10 +105,17 @@ function u.merge_array(main_array, ...)
   return main_array
 end
 
+--- Merge two or more object into one
+-- @param {Object} main_object       The destination object
+-- @param {...Object}                The source objects
+--
+-- @return {Object}  Returns object
 function u.merge_object(main_object, ...)
+  -- Walk objects
   for i = 1, select("#", ...) do
     local obj = select(i, ...)
 
+    -- Walk values of source object
     for k, v in pairs(obj) do
       if type(v) == "table" and main_object[k] ~= nil then
         main_object[k] = u.merge(main_object[k], v)
