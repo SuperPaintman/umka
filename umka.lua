@@ -155,6 +155,11 @@ function u.merge(main_table, ...)
   end
 end
 
+--- Checks if value includes in a array
+-- @param {Any[]} arr              The array to query.
+-- @param {Any} value              The value to search for.
+--
+-- @return {Boolean}  Returns true if value exists, else false.
 function u.in_array(arr, value)
   for k, v in ipairs(arr) do
     if v == value then return true end
