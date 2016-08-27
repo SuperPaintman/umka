@@ -168,9 +168,9 @@ function u.in_array(arr, value)
   return false
 end
 
-function u.in_object(t, i)
-  for k, v in pairs(t) do
-    if k == i then return true end
+function u.in_object(object, key)
+  for k, v in pairs(object) do
+    if k == key then return true end
   end
 
   return false
