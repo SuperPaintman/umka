@@ -181,6 +181,11 @@ function u.in_object(object, key)
   return false
 end
 
+--- Checks if key or value includes in a object or array
+-- @param {Object|Any[]} t          The object or array to query.
+-- @param {Any} i                   The key or value to search for.
+--
+-- @return {Boolean}  Returns true if key or value exists, else false.
 function u.in_table(t, i)
   if u.is_array(t) then
     return u.in_array(t, i)
