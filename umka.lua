@@ -34,14 +34,14 @@ end
 --------------------------------------------------------------------------------
 -- Strings
 --------------------------------------------------------------------------------
-function u.split(str, delim)
+function u.split(str, separator)
   local parts = {}
   local start = 1
   local finded = 1
 
-  if delim and delim ~= "" then
+  if separator and separator ~= "" then
     while finded do
-      finded = str:find(delim, start)
+      finded = str:find(separator, start)
       if finded then
         table.insert(parts, str:sub(start, finded - 1))
         start = finded + 1
