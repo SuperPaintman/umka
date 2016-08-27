@@ -168,6 +168,11 @@ function u.in_array(arr, value)
   return false
 end
 
+--- Checks if key includes in a object
+-- @param {Object} object          The object to query.
+-- @param {String|Number} key      The key to search for.
+--
+-- @return {Boolean}  Returns true if key exists, else false.
 function u.in_object(object, key)
   for k, v in pairs(object) do
     if k == key then return true end
