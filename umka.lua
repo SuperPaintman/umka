@@ -67,12 +67,12 @@ end
 --------------------------------------------------------------------------------
 -- Tables
 --------------------------------------------------------------------------------
-function u.is_array(a)
-  if type(a) ~= "table" then
+function u.is_array(value)
+  if type(value) ~= "table" then
     return false
   end
 
-  for k, v in pairs(a) do
+  for k, v in pairs(value) do
     if type(k) ~= "number" then
       return false
     end
