@@ -34,9 +34,9 @@ function u.random(...)
   if floating == nil or floating == false then
     floating = 0
   elseif floating == true then
-    floating = 14
-  elseif floating > 14 then
-    floating = 14
+    floating = 10
+  elseif floating > 10 then
+    floating = 10
   elseif floating < 0 then
     floating = 0
   end
