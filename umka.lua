@@ -9,7 +9,7 @@ local u = {}
 --- Return random number
 -- @param {Number} [lower=0]              The lower bound.
 -- @param {Number} [upper=1]              The upper bound.
--- @param {Number|Boolean} [floating=14]  Specify returning a floating-point number.
+-- @param {Number|Boolean} [floating=0]   Specify returning a floating-point number.
 --
 -- @return {Number}  Returns the random number.
 function u.random(lower, upper, floating)
