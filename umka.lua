@@ -12,7 +12,6 @@ local u = {}
 -- @param {Number|Boolean} [floating=0]   Specify returning a floating-point number.
 --
 -- @return {Number}  Returns the random number.
---function u.random(lower, upper, floating)
 function u.random(...)
   local args_count = select("#", ...)
   local lower     = select(1, ...)
