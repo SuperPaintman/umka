@@ -21,10 +21,6 @@ function u.random(...)
   if args_count == 1 then
     upper = lower
     lower = nil
-  elseif args_count == 2 then
-    floating = upper
-    upper = lower
-    lower = nil
   end
 
   if lower == nil then lower = 0 end
