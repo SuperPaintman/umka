@@ -26,6 +26,11 @@ function u.random(...)
   if lower == nil then lower = 0 end
   if upper == nil then upper = 1 end
 
+  -- Swap values when lover > upper
+  if lower > upper then
+    lower, upper = upper, lower
+  end
+
   if floating == nil or floating == false then
     floating = 0
   elseif floating == true then
