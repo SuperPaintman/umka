@@ -45,6 +45,20 @@ function u.random(...)
   return math.random(lower * m, upper * m) / m
 end
 
+--- Checks if value is an integer.
+-- @param {Number} value                The value to check.
+--
+-- @return {Boolean}  Returns true if value is an integer, else false.
+function u.is_integer(value)
+  if type(value) ~= "number" then
+    return false
+  end
+
+  local integer = math.floor(value)
+
+  return value == integer
+end
+
 --------------------------------------------------------------------------------
 -- Strings
 --------------------------------------------------------------------------------
