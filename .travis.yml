@@ -17,5 +17,8 @@ before_install:
   - source .travis/setenv_lua.sh
   - luarocks install busted
 
+before_script:
+  - busted --version
+
 script:
   - busted -o TAP
