@@ -1,0 +1,24 @@
+language: c
+
+sudo: false
+
+env:
+  global:
+    - LUAROCKS=2.3.0
+  matrix:
+    - LUA=lua5.1
+    - LUA=lua5.2
+    - LUA=lua5.3
+    - LUA=luajit
+    - LUA=luajit2.0
+    - LUA=luajit2.1
+
+before_install:
+  - source .travis/setenv_lua.sh
+  - luarocks install busted
+
+before_script:
+  - busted --version
+
+script:
+  - busted -o TAP
