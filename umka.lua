@@ -43,7 +43,7 @@ function u.random(...)
 
   local m = math.pow(10, floating)
 
-  return math.random(lower * m, upper * m) / m
+  return math.random(math.floor(lower * m), math.floor(upper * m)) / m
 end
 
 --- Checks if value is an integer.
