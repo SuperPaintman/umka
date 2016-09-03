@@ -9,7 +9,7 @@ local u = {}
 --- Return random number
 -- @param {Number} [lower=0]              The lower bound.
 -- @param {Number} [upper=1]              The upper bound.
--- @param {Number|Boolean} [floating=0]   Specify returning a floating-point number.
+-- @param {Boolean} [floating=false]      Specify returning a floating-point number.
 --
 -- @return {Number}  Returns the random number.
 function u.random(...)
@@ -25,25 +25,20 @@ function u.random(...)
 
   if lower == nil then lower = 0 end
   if upper == nil then upper = 1 end
+  if floating == nil then floating = false end
+
+  if not u.is_integer(lower) or not u.is_integer(upper) then floating = true end
 
   -- Swap values when lover > upper
   if lower > upper then
     lower, upper = upper, lower
   end
 
-  if floating == nil or floating == false then
-    floating = 0
-  elseif floating == true then
-    floating = 10
-  elseif floating > 10 then
-    floating = 10
-  elseif floating < 0 then
-    floating = 0
+  if floating then
+    return math.min(lower + math.random() * (upper - lower), upper)
+  else
+    return math.random(lower, upper)
   end
-
-  local m = math.pow(10, floating)
-
-  return math.random(math.floor(lower * m), math.floor(upper * m)) / m
 end
 
 --- Checks if value is an integer.
