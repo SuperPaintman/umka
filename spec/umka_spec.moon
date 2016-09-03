@@ -161,3 +161,25 @@ describe "split()", ->
             "https:", "", "github.com", "SuperPaintman", "umka"
         }, u.split("https://github.com/SuperPaintman/umka", "/")
 
+
+describe "is_array()", ->
+    it "should return `true` for array values", ->
+        assert.is_true u.is_array({})
+        assert.is_true u.is_array({1, 2, 3, 4})
+        assert.is_true u.is_array({"hello"})
+        assert.is_true u.is_array({"hello", "lua"})
+        assert.is_true u.is_array({"hello", 1, 3, 3, 7})
+        assert.is_true u.is_array({"hello", {1, 3, 3, 7}})
+        assert.is_true u.is_array({"hello", {number: 1337}})
+        assert.is_true u.is_array({"hello", {numbers: {1, 3, 3, 7}}})
+
+    it "should return `false` for non-array values", ->
+        assert.is_false u.is_array()
+        assert.is_false u.is_array({ hello: "world" })
+        assert.is_false u.is_array({ hello: "world", where: {"there"} })
+        assert.is_false u.is_array(false)
+        assert.is_false u.is_array(true)
+        assert.is_false u.is_array(nil)
+        assert.is_false u.is_array("hello lua")
+        assert.is_false u.is_array(->)
+        assert.is_false u.is_array(1337)
