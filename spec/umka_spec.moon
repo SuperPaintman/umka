@@ -183,3 +183,33 @@ describe "is_array()", ->
         assert.is_false u.is_array("hello lua")
         assert.is_false u.is_array(->)
         assert.is_false u.is_array(1337)
+
+describe "merge_array()", ->
+    it "should support only 1 argument", ->
+        assert.are.same {1, 2, 3}, u.merge_array({1, 2, 3})
+
+    it "should support 1 source array", ->
+        assert.are.same {
+            1, 1, 1, 1, 1, 1
+        }, u.merge_array({1, 1, 1}, {1, 1, 1})
+
+        assert.are.same {
+            1, 2, 3, 4, 5, 6
+        }, u.merge_array({1, 2, 3}, {4, 5, 6})
+
+        assert.are.same {
+            1, 2, 3, "a", "b", "c"
+        }, u.merge_array({1, 2, 3}, {"a", "b", "c"})
+
+    it "should support more than 1 source array", ->
+        assert.are.same {
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+        }, u.merge_array({1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {10})
+
+        assert.are.same {
+            1, 2, 3, "a", "b", "c", 1.2, 1.3, {number: 1.4}, "hello"
+        }, u.merge_array({1, 2, 3}, {"a", "b", "c"}, {1.2, 1.3, {number: 1.4}}, {"hello"})
+
+        assert.are.same {
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+        }, u.merge_array({1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})
