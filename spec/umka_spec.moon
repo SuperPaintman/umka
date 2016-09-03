@@ -106,3 +106,27 @@ describe "random()", ->
 
         assert.is_true has_float
 
+
+describe "is_integer()", ->
+    it "should return `true` for integer values", ->
+        for i = -1000, 1000
+            assert.is_true u.is_integer(i)
+
+        for k, v in pairs({-1e309, 1e309})
+            assert.is_true u.is_integer(v)
+
+    it "should return `false` for float values", ->
+        for k, v in pairs({-1.5, -124124.17, 100.7, 300.5, 6000.0000000001})
+            assert.is_false u.is_integer(v)
+
+    it "should return `false` for other non-integer values", ->
+        assert.is_false u.is_integer()
+        assert.is_false u.is_integer({})
+        assert.is_false u.is_integer({-1, 0, 1})
+        assert.is_false u.is_integer({ hello: "world" })
+        assert.is_false u.is_integer(false)
+        assert.is_false u.is_integer(true)
+        assert.is_false u.is_integer(nil)
+        assert.is_false u.is_integer("hello lua")
+        assert.is_false u.is_integer(->)
+
