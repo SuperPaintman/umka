@@ -1,5 +1,8 @@
 # Umka
 
+[![Linux Build][travis-image]][travis-url]
+
+
 Lua utility library
 
 
@@ -34,3 +37,5 @@ u.random(0, 100, 2)
 
 [license-url]: LICENSE
 [changelog-url]: CHANGELOG
+[travis-image]: https://img.shields.io/travis/SuperPaintman/umka/master.svg?label=linux
+[travis-url]: https://travis-ci.org/SuperPaintman/umka
