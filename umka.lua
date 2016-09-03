@@ -50,9 +50,7 @@ function u.is_integer(value)
     return false
   end
 
-  local integer = math.floor(value)
-
-  return value == integer
+  return value % 1 == 0
 end
 
 --------------------------------------------------------------------------------

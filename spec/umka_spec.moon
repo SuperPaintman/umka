@@ -112,9 +112,6 @@ describe "is_integer()", ->
         for i = -1000, 1000
             assert.is_true u.is_integer(i)
 
-        for k, v in pairs({-1e309, 1e309})
-            assert.is_true u.is_integer(v)
-
     it "should return `false` for float values", ->
         for k, v in pairs({-1.5, -124124.17, 100.7, 300.5, 6000.0000000001})
             assert.is_false u.is_integer(v)
