@@ -129,17 +129,14 @@ describe "is_integer()", ->
 
 
 describe "split()", ->
-    it "should return valid tables", ->
+    it "should return valid tables without `separator`", ->
         assert.are.same {}, u.split("")
 
-        assert.are.same {
-            "a", "b", "c"
-        }, u.split("abc")
+        assert.are.same {"a", "b", "c"}, u.split("abc")
 
-        assert.are.same {
-            "a", " ", "b", "c"
-        }, u.split("a bc")
+        assert.are.same {"a", " ", "b", "c"}, u.split("a bc")
 
+    it "should return valid tables with `separator`", ->
         assert.are.same {
             "a", "b", "c"
         }, u.split("a,b,c", ",")
