@@ -16,6 +16,7 @@ env:
 before_install:
   - source .travis/setenv_lua.sh
   - luarocks install busted
+  - luarocks install moonscript
 
 before_script:
   - busted --version
