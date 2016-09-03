@@ -72,7 +72,7 @@ function u.split(str, separator)
       finded = str:find(separator, start)
       if finded then
         table.insert(parts, str:sub(start, finded - 1))
-        start = finded + 1
+        start = finded + #separator
       else
         table.insert(parts, str:sub(start))
       end
