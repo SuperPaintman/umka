@@ -127,3 +127,40 @@ describe "is_integer()", ->
         assert.is_false u.is_integer("hello lua")
         assert.is_false u.is_integer(->)
 
+
+describe "split()", ->
+    it "should return valid tables", ->
+        assert.are.same {}, u.split("")
+
+        assert.are.same {
+            "a", "b", "c"
+        }, u.split("abc")
+
+        assert.are.same {
+            "a", " ", "b", "c"
+        }, u.split("a bc")
+
+        assert.are.same {
+            "a", "b", "c"
+        }, u.split("a,b,c", ",")
+
+        assert.are.same {
+            "a", "b", "c"
+        }, u.split("a b c", " ")
+
+        assert.are.same {
+            "a", "", "b", "c"
+        }, u.split("a  b c", " ")
+
+        assert.are.same {
+            "a", "b", "c"
+        }, u.split("a--|--b--|--c", "--|--")
+
+        assert.are.same {
+            "a", "", "b", "c"
+        }, u.split("a--|----|--b--|--c", "--|--")
+
+        assert.are.same {
+            "https:", "", "github.com", "SuperPaintman", "umka"
+        }, u.split("https://github.com/SuperPaintman/umka", "/")
+
