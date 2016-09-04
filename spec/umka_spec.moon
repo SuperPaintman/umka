@@ -364,95 +364,103 @@ for k, func in pairs({
                     [1]: "six"
                 })
 
-describe "in_array()", ->
-    it "should return `true` if value in array", ->
-        assert.is_true u.in_array({
-            1, 2, 3, 4, 5
-        }, 1)
+for k, func in pairs({
+    in_array: u.in_array,
+    in_object: u.in_object,
+    in_table: u.in_table
+})
+    describe "#{k}()", ->
+        if k == "in_array" or k == "in_table"
+            it "should return `true` if value in array", ->
+                assert.is_true func({
+                    1, 2, 3, 4, 5
+                }, 1)
 
-        assert.is_true u.in_array({
-            1, 2, 3, "hello", 5
-        }, "hello")
+                assert.is_true func({
+                    1, 2, 3, "hello", 5
+                }, "hello")
 
-        assert.is_true u.in_array({
-            1, 2, 3, "hello", 5, true
-        }, true)
+                assert.is_true func({
+                    1, 2, 3, "hello", 5, true
+                }, true)
 
-    it "should return `false` if value not in array", ->
-        assert.is_false u.in_array({
-            1, 2, 3, 4, 5
-        }, 6)
+        if k == "in_array" or k == "in_table"
+            it "should return `false` if value not in array", ->
+                assert.is_false func({
+                    1, 2, 3, 4, 5
+                }, 6)
 
-        assert.is_false u.in_array({
-            1, 2, 3, "hello", 5
-        }, "world")
+                assert.is_false func({
+                    1, 2, 3, "hello", 5
+                }, "world")
 
-        assert.is_false u.in_array({
-            1, 2, 3, "hello", 5, true
-        }, false)
+                assert.is_false func({
+                    1, 2, 3, "hello", 5, true
+                }, false)
 
-        assert.is_false u.in_array({
-            1, 2, 3, "hello", 5, true
-        }, nil)
+                assert.is_false func({
+                    1, 2, 3, "hello", 5, true
+                }, nil)
 
-        assert.is_false u.in_array({
-            1, 2, 3, "hello", 5, true
-        })
+                assert.is_false func({
+                    1, 2, 3, "hello", 5, true
+                })
 
-        assert.is_false u.in_array({
-            1, 2, 3, "hello", {5}, true
-        }, 5)
+                assert.is_false func({
+                    1, 2, 3, "hello", {5}, true
+                }, 5)
 
-describe "in_object()", ->
-    it "should return `true` if key in object", ->
-        assert.is_true u.in_object({
-            hello: "world",
-            where: "there"
-        }, "hello")
+        if k == "in_object" or k == "in_table"
+            it "should return `true` if key in object", ->
+                assert.is_true func({
+                    hello: "world",
+                    where: "there"
+                }, "hello")
 
-        assert.is_true u.in_object({
-            [1]: "one",
-            [2]: "two",
-            hello: "there"
-        }, 2)
+                assert.is_true func({
+                    [1]: "one",
+                    [2]: "two",
+                    hello: "there"
+                }, 2)
 
-    it "should return `false` if key not in object", ->
-        assert.is_false u.in_object({
-            hello: "world",
-            where: "there"
-        }, "world")
+        if k == "in_object" or k == "in_table"
+            it "should return `false` if key not in object", ->
+                assert.is_false func({
+                    hello: "world",
+                    where: "there"
+                }, "world")
 
-        assert.is_false u.in_object({
-            [1]: "one",
-            [2]: "two",
-            hello: "there"
-        }, 3)
+                assert.is_false func({
+                    [1]: "one",
+                    [2]: "two",
+                    hello: "there"
+                }, 3)
 
-        assert.is_false u.in_object({
-            [1]: "one",
-            [2]: "two",
-            hello: "there"
-        }, false)
+                assert.is_false func({
+                    [1]: "one",
+                    [2]: "two",
+                    hello: "there"
+                }, false)
 
-        assert.is_false u.in_object({
-            [1]: "one",
-            [2]: "two",
-            hello: "there"
-        }, nil)
+                assert.is_false func({
+                    [1]: "one",
+                    [2]: "two",
+                    hello: "there"
+                }, nil)
 
-        assert.is_false u.in_object({
-            [1]: "one",
-            [2]: "two",
-            hello: "there"
-        })
+                assert.is_false func({
+                    [1]: "one",
+                    [2]: "two",
+                    hello: "there"
+                })
 
-        assert.is_false u.in_object({
-            [1]: "one",
-            [2]: "two",
-            hello: "there",
-            deep: {
-                deep: {
-                    hax0r: 1337
-                }
-            }
-        }, "hax0r")
+                assert.is_false func({
+                    [1]: "one",
+                    [2]: "two",
+                    hello: "there",
+                    deep: {
+                        deep: {
+                            hax0r: 1337
+                        }
+                    }
+                }, "hax0r")
