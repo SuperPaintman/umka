@@ -213,3 +213,88 @@ describe "merge_array()", ->
         assert.are.same {
             1, 2, 3, 4, 5, 6, 7, 8, 9, 10
         }, u.merge_array({1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})
+
+describe "merge_object()", ->
+    it "should support only 1 argument", ->
+        assert.are.same {
+            hello: "world", where: "there", hax0r: 1337
+        }, u.merge_object({hello: "world", where: "there", hax0r: 1337})
+
+    it "should support 1 source object", ->
+        assert.are.same {
+            number: 2
+        }, u.merge_object({
+            number: 1
+        }, {
+            number: 2
+        })
+
+        assert.are.same {
+            hello: "world",
+            where: "there",
+            deep: {
+                deep: {
+                    deep: "property"
+                }
+            },
+            hax0r: 1337
+        }, u.merge_object({
+            hello: "world",
+            where: "there"
+            deep: {deep: {deep: "property" }}
+        }, {
+            hax0r: 1337
+        })
+
+    it "should support more than 1 source object", ->
+        assert.are.same {
+            number: "five"
+        }, u.merge_object({
+            number: 1
+        }, {
+            number: 2
+        }, {
+            number: 3
+        }, {
+            number: 4
+        }, {
+            number: "five"
+        })
+
+        assert.are.same {
+            hello: "world",
+            where: "there",
+            deep: {
+                heres: "Johnny",
+                deep: {
+                    deep: "property"
+                },
+                arr: {1, 2, 3},
+                brokenArr: 4
+            },
+            hax0r: 1337
+        }, u.merge_object({
+            deep: {
+                deep: {
+                    deep: "property"
+                }
+            }
+        }, {
+            hello: "world",
+            where: "there"
+        }, {
+            hax0r: 1337,
+            deep: {
+                heres: "Johnny",
+                arr: {1, 2},
+                brokenArr: {1, 2, 3}
+            }
+        }, {
+            deep: {
+                arr: {3}
+            }
+        }, {
+            deep: {
+                brokenArr: 4
+            }
+        })
