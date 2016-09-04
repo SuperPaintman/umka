@@ -30,4 +30,4 @@ script:
   - busted --verbose --coverage --output TAP
 
 after_success:
-  - luacov-coveralls --include *.lua --exclude spec
+  - luacov-coveralls --include ./*.lua --exclude spec
