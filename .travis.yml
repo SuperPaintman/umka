@@ -17,6 +17,8 @@ before_install:
   - source .travis/setenv_lua.sh
   - luarocks install luacheck
   - luarocks install busted
+  - luarocks install luacov
+  - luarocks install luacov-coveralls
   - luarocks install moonscript
 
 before_script:
@@ -25,4 +27,7 @@ before_script:
 
 script:
   - luacheck --no-unused-args --std max+busted *.lua spec
-  - busted -o TAP
+  - busted --verbose --coverage --output TAP
+
+after_success:
+  - luacov-coveralls --include *.lua --exclude spec
