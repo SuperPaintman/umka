@@ -1,0 +1,540 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>umka</strong></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>umka</code></h1>
+<p>Lua utility library</p>
+<p></p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>License</strong>: MIT</li>
+        <li><strong>Author</strong>: Alexander Krivoshhekov <SuperPaintmanDeveloper@gmail.com></li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#u.random">u.random ([lower=0[, upper=1[, floating=false]]])</a></td>
+	<td class="summary">Return random number</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#u.is_integer">u.is_integer (value)</a></td>
+	<td class="summary">Checks if value is an integer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#u.split">u.split (str[, separator])</a></td>
+	<td class="summary">Splits string into an array of strings</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#u.is_array">u.is_array (value)</a></td>
+	<td class="summary">Checks if value is an array.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#u.merge_arrays">u.merge_arrays (main_array, ...)</a></td>
+	<td class="summary">Merge two or more arrays into one</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#u.merge_objects">u.merge_objects (main_object, ...)</a></td>
+	<td class="summary">Merge two or more object into one</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#u.merge">u.merge (main_table, ...)</a></td>
+	<td class="summary">Merge two or more tables into one</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#u.in_array">u.in_array (arr, value)</a></td>
+	<td class="summary">Checks if value includes in a array</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#u.in_object">u.in_object (object, key)</a></td>
+	<td class="summary">Checks if key includes in a object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#u.in_table">u.in_table (t, i)</a></td>
+	<td class="summary">Checks if key or value includes in a object or array</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "u.random"></a>
+    <strong>u.random ([lower=0[, upper=1[, floating=false]]])</strong>
+    </dt>
+    <dd>
+    Return random number
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">lower</span>
+            <span class="types"><span class="type">number</span></span>
+                 The lower bound.
+         (<em>default</em> 0)
+        </li>
+        <li><span class="parameter">upper</span>
+            <span class="types"><span class="type">number</span></span>
+                 The upper bound.
+         (<em>default</em> 1)
+        </li>
+        <li><span class="parameter">floating</span>
+            <span class="types"><span class="type">boolean</span></span>
+              Specify returning a floating-point number.
+         (<em>default</em> false)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        Returns the random number
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">u.random(<span class="number">0</span>, <span class="number">10</span>)
+<span class="comment">-- =&gt; 7
+</span>
+u.random(<span class="number">7</span>)
+<span class="comment">-- =&gt; 4
+</span>
+u.random(-<span class="number">10</span>, <span class="number">10</span>, <span class="keyword">true</span>)
+<span class="comment">-- =&gt; -4.2717062898648
+</span>
+u.random(<span class="number">2.4</span>, <span class="number">7.1</span>)
+<span class="comment">-- =&gt; 3.3085299233985</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "u.is_integer"></a>
+    <strong>u.is_integer (value)</strong>
+    </dt>
+    <dd>
+    Checks if value is an integer.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">number</span></span>
+              The value to check.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        Returns true if value is an integer, else false.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">u.is_integer(<span class="number">6</span>)
+<span class="comment">-- =&gt; true
+</span>
+u.is_integer(-<span class="number">9000</span>)
+<span class="comment">-- =&gt; true
+</span>
+u.is_integer(<span class="number">1337.85</span>)
+<span class="comment">-- =&gt; false
+</span>
+u.is_integer(<span class="string">"8"</span>)
+<span class="comment">-- =&gt; false</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "u.split"></a>
+    <strong>u.split (str[, separator])</strong>
+    </dt>
+    <dd>
+    Splits string into an array of strings
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">str</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+                      The string to split.
+        </li>
+        <li><span class="parameter">separator</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+                The character to use for separating the string.
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string[]</a></span>
+        Returns the array of strings.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">u.split(<span class="string">"abc"</span>)
+<span class="comment">-- =&gt; {"a", "b", "c"}
+</span>
+u.split(<span class="string">"a-b-c"</span>, <span class="string">"-"</span>)
+<span class="comment">-- =&gt; {"a", "b", "c"}
+</span>
+u.split(<span class="string">"a--|--b--|--c"</span>, <span class="string">"--|--"</span>)
+<span class="comment">-- =&gt; {"a", "b", "c"}</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "u.is_array"></a>
+    <strong>u.is_array (value)</strong>
+    </dt>
+    <dd>
+    Checks if value is an array.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">any</span></span>
+                 The value to check.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        Returns true if value is an array, else false.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">u.is_array({})
+<span class="comment">-- =&gt; true
+</span>
+u.is_array({<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>})
+<span class="comment">-- =&gt; true
+</span>
+u.is_array({ hello = <span class="string">"world"</span> })
+<span class="comment">-- =&gt; false
+</span>
+u.is_array(<span class="string">"umka"</span>)
+<span class="comment">-- =&gt; false</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "u.merge_arrays"></a>
+    <strong>u.merge_arrays (main_array, ...)</strong>
+    </dt>
+    <dd>
+    Merge two or more arrays into one
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">main_array</span>
+            <span class="types"><span class="type">any[]</span></span>
+            The destination array.
+        </li>
+        <li><span class="parameter">...</span>
+            <span class="types"><span class="type">any[][]</span></span>
+                   The source arrays.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">any[]</span></span>
+        Returns array.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">u.merge_arrays({<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>}, {<span class="number">4</span>, <span class="number">5</span>})
+<span class="comment">-- =&gt; {1, 2, 3, 4, 5}
+</span>
+u.merge_arrays({<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>}, {<span class="number">4</span>, <span class="number">5</span>}, {<span class="string">"hello"</span>}, {<span class="number">1</span>})
+<span class="comment">-- =&gt; {1, 2, 3, 4, 5, "hello", 1}</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "u.merge_objects"></a>
+    <strong>u.merge_objects (main_object, ...)</strong>
+    </dt>
+    <dd>
+    Merge two or more object into one
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">main_object</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+               The destination object.
+        </li>
+        <li><span class="parameter">...</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table[]</a></span>
+                       The source objects.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        Returns object.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">u.merge_objects({hello = <span class="string">"world"</span>}, {where = <span class="string">"there"</span>})
+<span class="comment">-- =&gt; {hello = "world", where = "there"}
+</span>
+u.merge_objects({hello = <span class="string">"world"</span>}, {where = <span class="string">"there"</span>}, {hello = <span class="string">"no"</span>})
+<span class="comment">-- =&gt; {hello = "no", where = "there"}</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "u.merge"></a>
+    <strong>u.merge (main_table, ...)</strong>
+    </dt>
+    <dd>
+    Merge two or more tables into one
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">main_table</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+            The destination table.
+        </li>
+        <li><span class="parameter">...</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table[]</a></span>
+                   The source tables.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        Returns table.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">u.merge({hello = <span class="string">"world"</span>}, {where = <span class="string">"there"</span>})
+<span class="comment">-- =&gt; {hello = "world", where = "there"}
+</span>
+u.merge({hello = <span class="string">"world"</span>}, {where = <span class="string">"there"</span>}, {hello = <span class="string">"no"</span>})
+<span class="comment">-- =&gt; {hello = "no", where = "there"}
+</span>
+u.merge({<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>}, {hello = <span class="string">"world"</span>})
+<span class="comment">-- =&gt; {[1] = 1, [2] = 2, [3] = 3, hello = "world"}
+</span>
+u.merge({hello = <span class="string">"world"</span>}, {<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>})
+<span class="comment">-- =&gt; {[1] = 4, [2] = 5, [3] = 6, hello = "world"}</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "u.in_array"></a>
+    <strong>u.in_array (arr, value)</strong>
+    </dt>
+    <dd>
+    Checks if value includes in a array
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">arr</span>
+            <span class="types"><span class="type">any[]</span></span>
+                The array to query.
+        </li>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">any</span></span>
+              The value to search for.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        Returns true if value exists, else false.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">u.in_array({<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>}, <span class="number">3</span>)
+<span class="comment">-- =&gt; true
+</span>
+u.in_array({<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>}, <span class="number">7</span>)
+<span class="comment">-- =&gt; false</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "u.in_object"></a>
+    <strong>u.in_object (object, key)</strong>
+    </dt>
+    <dd>
+    Checks if key includes in a object
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">object</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+               The object to query.
+        </li>
+        <li><span class="parameter">key</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a> or <span class="type">number</span></span>
+                  The key to search for.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        Returns true if key exists, else false.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">u.in_object({hello = <span class="string">"world"</span>, where = <span class="string">"there"</span>}, <span class="string">"hello"</span>)
+<span class="comment">-- =&gt; true
+</span>
+u.in_object({hello = <span class="string">"world"</span>, where = <span class="string">"there"</span>}, <span class="string">"umka"</span>)
+<span class="comment">-- =&gt; false</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "u.in_table"></a>
+    <strong>u.in_table (t, i)</strong>
+    </dt>
+    <dd>
+    Checks if key or value includes in a object or array
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">t</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a> or <span class="type">any[]</span></span>
+             The object or array to query.
+        </li>
+        <li><span class="parameter">i</span>
+            <span class="types"><span class="type">any</span></span>
+             The key or value to search for.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        Returns true if key or value exists, else false.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">u.in_table({<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>}, <span class="number">3</span>)
+<span class="comment">-- =&gt; true
+</span>
+u.in_table({<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>}, <span class="number">7</span>)
+<span class="comment">-- =&gt; false
+</span>
+u.in_table({hello = <span class="string">"world"</span>, where = <span class="string">"there"</span>}, <span class="string">"hello"</span>)
+<span class="comment">-- =&gt; true
+</span>
+u.in_table({hello = <span class="string">"world"</span>, where = <span class="string">"there"</span>}, <span class="number">1</span>)
+<span class="comment">-- =&gt; false</span></pre>
+    </ul>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.5</a></i>
+<i style="float:right;">Last updated 2016-09-04 20:10:00 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
