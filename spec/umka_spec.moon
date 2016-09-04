@@ -308,3 +308,58 @@ for k, func in pairs({
                         brokenArr: 4
                     }
                 })
+
+        if k == "merge"
+            it "should support merging array with object", ->
+                assert.are.same {
+                    number: 1,
+                    [1]: 1,
+                    [2]: 2,
+                    [3]: 5
+                }, func({
+                    1, 2, 5
+                }, {
+                    number: 1
+                })
+
+                assert.are.same {
+                    number: 1,
+                    [1]: "six",
+                    [2]: 4,
+                    [3]: 5
+                }, func({
+                    1, 2, 5
+                }, {
+                    number: 1
+                }, {
+                    6, 4
+                }, {
+                    [1]: "six"
+                })
+
+            it "should support merging object with array", ->
+                assert.are.same {
+                    number: 1,
+                    [1]: 1,
+                    [2]: 2,
+                    [3]: 5
+                }, func({
+                    number: 1
+                }, {
+                    1, 2, 5
+                })
+
+                assert.are.same {
+                    number: 1,
+                    [1]: "six",
+                    [2]: 4,
+                    [3]: 5
+                }, func({
+                    number: 1
+                }, {
+                    1, 2, 5
+                }, {
+                    6, 4
+                }, {
+                    [1]: "six"
+                })
