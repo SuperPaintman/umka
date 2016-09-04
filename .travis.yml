@@ -28,6 +28,7 @@ before_script:
 script:
   - luacheck *.lua
   - busted --verbose --coverage --output TAP
+  - luarocks make
 
 after_success:
   - luacov-coveralls --exclude spec --exclude $TRAVIS_BUILD_DIR/install
