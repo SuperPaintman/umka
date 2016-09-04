@@ -16,7 +16,7 @@ Lua utility library
 ```lua
 local u = require("umka")
 
-u.random(0, 100, 2)
+u.random(0, 100, true)
 -- ➜ 42.17
 ```
 
