@@ -9,6 +9,10 @@ Lua utility library
 
 ## Installation
 
+```sh
+luarocks install umka
+```
+
 --------------------------------------------------------------------------------
 
 ## Usage
