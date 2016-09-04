@@ -185,16 +185,16 @@ describe "is_array()", ->
         assert.is_false u.is_array(1337)
 
 for k, func in pairs({
-    merge_array: u.merge_array,
-    merge_object: u.merge_object,
+    merge_arrays: u.merge_arrays,
+    merge_objects: u.merge_objects,
     merge: u.merge
 })
     describe "#{k}()", ->
-        if k == "merge_array" or k == "merge"
+        if k == "merge_arrays" or k == "merge"
             it "should support only 1 argument as array", ->
                 assert.are.same {1, 2, 3}, func({1, 2, 3})
 
-        if k == "merge_array" or k == "merge"
+        if k == "merge_arrays" or k == "merge"
             it "should support 1 source array", ->
                 assert.are.same {
                     1, 1, 1, 1, 1, 1
@@ -208,7 +208,7 @@ for k, func in pairs({
                     1, 2, 3, "a", "b", "c"
                 }, func({1, 2, 3}, {"a", "b", "c"})
 
-        if k == "merge_array" or k == "merge"
+        if k == "merge_arrays" or k == "merge"
             it "should support more than 1 source array", ->
                 assert.are.same {
                     1, 2, 3, 4, 5, 6, 7, 8, 9, 10
@@ -222,13 +222,13 @@ for k, func in pairs({
                     1, 2, 3, 4, 5, 6, 7, 8, 9, 10
                 }, func({1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})
 
-        if k == "merge_object" or k == "merge"
+        if k == "merge_objects" or k == "merge"
             it "should support only 1 argument as object", ->
                 assert.are.same {
                     hello: "world", where: "there", hax0r: 1337
                 }, func({hello: "world", where: "there", hax0r: 1337})
 
-        if k == "merge_object" or k == "merge"
+        if k == "merge_objects" or k == "merge"
             it "should support 1 source object", ->
                 assert.are.same {
                     number: 2
@@ -255,7 +255,7 @@ for k, func in pairs({
                     hax0r: 1337
                 })
 
-        if k == "merge_object" or k == "merge"
+        if k == "merge_objects" or k == "merge"
             it "should support more than 1 source object", ->
                 assert.are.same {
                     number: "five"

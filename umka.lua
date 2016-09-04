@@ -113,7 +113,7 @@ end
 -- @param {...Any[]}                The source arrays
 --
 -- @return {Any[]}  Returns array
-function u.merge_array(main_array, ...)
+function u.merge_arrays(main_array, ...)
   -- Walk arrays
   for i = 1, select("#", ...) do
     local arr = select(i, ...)
@@ -132,7 +132,7 @@ end
 -- @param {...Object}                The source objects
 --
 -- @return {Object}  Returns object
-function u.merge_object(main_object, ...)
+function u.merge_objects(main_object, ...)
   -- Walk objects
   for i = 1, select("#", ...) do
     local obj = select(i, ...)
@@ -173,9 +173,9 @@ function u.merge(main_table, ...)
   end
 
   if is_arr then
-    return u.merge_array(main_table, ...)
+    return u.merge_arrays(main_table, ...)
   else
-    return u.merge_object(main_table, ...)
+    return u.merge_objects(main_table, ...)
   end
 end
 
