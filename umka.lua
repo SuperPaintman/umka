@@ -156,15 +156,17 @@ end
 --
 -- @return {Table}  Returns table
 function u.merge(main_table, ...)
-  local is_arr = false
-  if #main_table > 0 and u.is_array(main_table) then
-    is_arr = true
+  local is_arr = true
+
+  -- Finding object argument
+  if not u.is_array(main_table) then
+    is_arr = false
   else
     for i = 1, select("#", ...) do
       local t = select(i, ...)
 
-      if #t > 0 and u.is_array(t) then
-        is_arr = true
+      if not u.is_array(t) then
+        is_arr = false
         break
       end
     end
