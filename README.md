@@ -28,6 +28,7 @@ u.random(0, 100, true)
 --------------------------------------------------------------------------------
 
 ## API
+[Docs][docs-url]
 
 --------------------------------------------------------------------------------
 
@@ -43,6 +44,7 @@ u.random(0, 100, true)
 
 [license-url]: LICENSE
 [changelog-url]: CHANGELOG.md
+[docs-url]: https://superpaintman.github.io/umka/
 [travis-image]: https://img.shields.io/travis/SuperPaintman/umka/master.svg?label=linux
 [travis-url]: https://travis-ci.org/SuperPaintman/umka
 [coveralls-image]: https://img.shields.io/coveralls/SuperPaintman/umka/master.svg
