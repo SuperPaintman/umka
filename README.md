@@ -2,6 +2,7 @@
 
 [![Linux Build][travis-image]][travis-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
+[![Luarocks version][luarocks-image]][luarocks-url]
 
 
 Lua utility library
@@ -46,3 +47,5 @@ u.random(0, 100, true)
 [travis-url]: https://travis-ci.org/SuperPaintman/umka
 [coveralls-image]: https://img.shields.io/coveralls/SuperPaintman/umka/master.svg
 [coveralls-url]: https://coveralls.io/r/SuperPaintman/umka?branch=master
+[luarocks-image]: https://img.shields.io/github/tag/superpaintman/umka.svg?label=luarocks
+[luarocks-url]: https://luarocks.org/modules/superpaintman/umka
