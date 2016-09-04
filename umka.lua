@@ -20,6 +20,8 @@ local u = {}
 --
 -- @treturn number                          Returns the random number
 --
+-- @since 0.1.0
+--
 -- @usage
 -- u.random(0, 10)
 -- -- => 7
@@ -66,6 +68,8 @@ end
 --
 -- @treturn   boolean             Returns true if value is an integer, else false.
 --
+-- @since 0.1.0
+--
 -- @usage
 -- u.is_integer(6)
 -- -- => true
@@ -95,6 +99,8 @@ end
 -- @tparam[opt]   string separator        The character to use for separating the string.
 --
 -- @treturn       string[]                Returns the array of strings.
+--
+-- @since 0.1.0
 --
 -- @usage
 -- u.split("abc")
@@ -138,6 +144,8 @@ end
 --
 -- @treturn  boolean              Returns true if value is an array, else false.
 --
+-- @since 0.1.0
+--
 -- @usage
 -- u.is_array({})
 -- -- => true
@@ -170,6 +178,8 @@ end
 --
 -- @treturn   any[]                  Returns array.
 --
+-- @since 0.1.0
+--
 -- @usage
 -- u.merge_arrays({1, 2, 3}, {4, 5})
 -- -- => {1, 2, 3, 4, 5}
@@ -195,6 +205,8 @@ end
 -- @tparam  table[]   ...               The source objects.
 --
 -- @treturn table                       Returns object.
+--
+-- @since 0.1.0
 --
 -- @usage
 -- u.merge_objects({hello = "world"}, {where = "there"})
@@ -225,6 +237,8 @@ end
 -- @tparam table[]      ...           The source tables.
 --
 -- @treturn table                     Returns table.
+--
+-- @since 0.1.0
 --
 -- @usage
 -- u.merge({hello = "world"}, {where = "there"})
@@ -268,6 +282,8 @@ end
 --
 -- @treturn   boolean           Returns true if value exists, else false.
 --
+-- @since 0.1.0
+--
 -- @usage
 -- u.in_array({1, 2, 3}, 3)
 -- -- => true
@@ -288,6 +304,8 @@ end
 --
 -- @treturn   boolean                     Returns true if key exists, else false.
 --
+-- @since 0.1.0
+--
 -- @usage
 -- u.in_object({hello = "world", where = "there"}, "hello")
 -- -- => true
@@ -307,6 +325,8 @@ end
 -- @tparam   any            i     The key or value to search for.
 --
 -- @treturn  boolean              Returns true if key or value exists, else false.
+--
+-- @since 0.1.0
 --
 -- @usage
 -- u.in_table({1, 2, 3}, 3)
