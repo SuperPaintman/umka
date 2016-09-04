@@ -184,117 +184,127 @@ describe "is_array()", ->
         assert.is_false u.is_array(->)
         assert.is_false u.is_array(1337)
 
-describe "merge_array()", ->
-    it "should support only 1 argument", ->
-        assert.are.same {1, 2, 3}, u.merge_array({1, 2, 3})
+for k, func in pairs({
+    merge_array: u.merge_array,
+    merge_object: u.merge_object,
+    merge: u.merge
+})
+    describe "#{k}()", ->
+        if k == "merge_array" or k == "merge"
+            it "should support only 1 argument as array", ->
+                assert.are.same {1, 2, 3}, func({1, 2, 3})
 
-    it "should support 1 source array", ->
-        assert.are.same {
-            1, 1, 1, 1, 1, 1
-        }, u.merge_array({1, 1, 1}, {1, 1, 1})
+        if k == "merge_array" or k == "merge"
+            it "should support 1 source array", ->
+                assert.are.same {
+                    1, 1, 1, 1, 1, 1
+                }, func({1, 1, 1}, {1, 1, 1})
 
-        assert.are.same {
-            1, 2, 3, 4, 5, 6
-        }, u.merge_array({1, 2, 3}, {4, 5, 6})
+                assert.are.same {
+                    1, 2, 3, 4, 5, 6
+                }, func({1, 2, 3}, {4, 5, 6})
 
-        assert.are.same {
-            1, 2, 3, "a", "b", "c"
-        }, u.merge_array({1, 2, 3}, {"a", "b", "c"})
+                assert.are.same {
+                    1, 2, 3, "a", "b", "c"
+                }, func({1, 2, 3}, {"a", "b", "c"})
 
-    it "should support more than 1 source array", ->
-        assert.are.same {
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-        }, u.merge_array({1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {10})
+        if k == "merge_array" or k == "merge"
+            it "should support more than 1 source array", ->
+                assert.are.same {
+                    1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+                }, func({1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {10})
 
-        assert.are.same {
-            1, 2, 3, "a", "b", "c", 1.2, 1.3, {number: 1.4}, "hello"
-        }, u.merge_array({1, 2, 3}, {"a", "b", "c"}, {1.2, 1.3, {number: 1.4}}, {"hello"})
+                assert.are.same {
+                    1, 2, 3, "a", "b", "c", 1.2, 1.3, {number: 1.4}, "hello"
+                }, func({1, 2, 3}, {"a", "b", "c"}, {1.2, 1.3, {number: 1.4}}, {"hello"})
 
-        assert.are.same {
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-        }, u.merge_array({1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})
+                assert.are.same {
+                    1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+                }, func({1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})
 
-describe "merge_object()", ->
-    it "should support only 1 argument", ->
-        assert.are.same {
-            hello: "world", where: "there", hax0r: 1337
-        }, u.merge_object({hello: "world", where: "there", hax0r: 1337})
+        if k == "merge_object" or k == "merge"
+            it "should support only 1 argument as object", ->
+                assert.are.same {
+                    hello: "world", where: "there", hax0r: 1337
+                }, func({hello: "world", where: "there", hax0r: 1337})
 
-    it "should support 1 source object", ->
-        assert.are.same {
-            number: 2
-        }, u.merge_object({
-            number: 1
-        }, {
-            number: 2
-        })
+        if k == "merge_object" or k == "merge"
+            it "should support 1 source object", ->
+                assert.are.same {
+                    number: 2
+                }, func({
+                    number: 1
+                }, {
+                    number: 2
+                })
 
-        assert.are.same {
-            hello: "world",
-            where: "there",
-            deep: {
-                deep: {
-                    deep: "property"
-                }
-            },
-            hax0r: 1337
-        }, u.merge_object({
-            hello: "world",
-            where: "there"
-            deep: {deep: {deep: "property" }}
-        }, {
-            hax0r: 1337
-        })
+                assert.are.same {
+                    hello: "world",
+                    where: "there",
+                    deep: {
+                        deep: {
+                            deep: "property"
+                        }
+                    },
+                    hax0r: 1337
+                }, func({
+                    hello: "world",
+                    where: "there"
+                    deep: {deep: {deep: "property" }}
+                }, {
+                    hax0r: 1337
+                })
 
-    it "should support more than 1 source object", ->
-        assert.are.same {
-            number: "five"
-        }, u.merge_object({
-            number: 1
-        }, {
-            number: 2
-        }, {
-            number: 3
-        }, {
-            number: 4
-        }, {
-            number: "five"
-        })
+        if k == "merge_object" or k == "merge"
+            it "should support more than 1 source object", ->
+                assert.are.same {
+                    number: "five"
+                }, func({
+                    number: 1
+                }, {
+                    number: 2
+                }, {
+                    number: 3
+                }, {
+                    number: 4
+                }, {
+                    number: "five"
+                })
 
-        assert.are.same {
-            hello: "world",
-            where: "there",
-            deep: {
-                heres: "Johnny",
-                deep: {
-                    deep: "property"
-                },
-                arr: {1, 2, 3},
-                brokenArr: 4
-            },
-            hax0r: 1337
-        }, u.merge_object({
-            deep: {
-                deep: {
-                    deep: "property"
-                }
-            }
-        }, {
-            hello: "world",
-            where: "there"
-        }, {
-            hax0r: 1337,
-            deep: {
-                heres: "Johnny",
-                arr: {1, 2},
-                brokenArr: {1, 2, 3}
-            }
-        }, {
-            deep: {
-                arr: {3}
-            }
-        }, {
-            deep: {
-                brokenArr: 4
-            }
-        })
+                assert.are.same {
+                    hello: "world",
+                    where: "there",
+                    deep: {
+                        heres: "Johnny",
+                        deep: {
+                            deep: "property"
+                        },
+                        arr: {1, 2, 3},
+                        brokenArr: 4
+                    },
+                    hax0r: 1337
+                }, func({
+                    deep: {
+                        deep: {
+                            deep: "property"
+                        }
+                    }
+                }, {
+                    hello: "world",
+                    where: "there"
+                }, {
+                    hax0r: 1337,
+                    deep: {
+                        heres: "Johnny",
+                        arr: {1, 2},
+                        brokenArr: {1, 2, 3}
+                    }
+                }, {
+                    deep: {
+                        arr: {3}
+                    }
+                }, {
+                    deep: {
+                        brokenArr: 4
+                    }
+                })
