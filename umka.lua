@@ -16,9 +16,22 @@ local u = {}
 --- Return random number
 -- @tparam[opt=0]     number  lower         The lower bound.
 -- @tparam[opt=1]     number  upper         The upper bound.
--- @tparam[opt=false] bool    floating      Specify returning a floating-point number.
+-- @tparam[opt=false] boolean floating      Specify returning a floating-point number.
 --
 -- @treturn number                          Returns the random number
+--
+-- @usage
+-- u.random(0, 10)
+-- -- => 7
+--
+-- u.random(7)
+-- -- => 4
+--
+-- u.random(-10, 10, true)
+-- -- => -4.2717062898648
+--
+-- u.random(2.4, 7.1)
+-- -- => 3.3085299233985
 function u.random(...)
   local args_count = select("#", ...)
   local lower     = select(1, ...)
@@ -52,6 +65,19 @@ end
 -- @tparam    number   value      The value to check.
 --
 -- @treturn   boolean             Returns true if value is an integer, else false.
+--
+-- @usage
+-- u.is_integer(6)
+-- -- => true
+--
+-- u.is_integer(-9000)
+-- -- => true
+--
+-- u.is_integer(1337.85)
+-- -- => false
+--
+-- u.is_integer("8")
+-- -- => false
 function u.is_integer(value)
   if type(value) ~= "number" then
     return false
@@ -69,6 +95,16 @@ end
 -- @tparam[opt]   string separator        The character to use for separating the string.
 --
 -- @treturn       string[]                Returns the array of strings.
+--
+-- @usage
+-- u.split("abc")
+-- -- => {"a", "b", "c"}
+--
+-- u.split("a-b-c", "-")
+-- -- => {"a", "b", "c"}
+--
+-- u.split("a--|--b--|--c", "--|--")
+-- -- => {"a", "b", "c"}
 function u.split(str, separator)
   local parts = {}
   local start = 1
@@ -101,6 +137,19 @@ end
 -- @tparam   any    value         The value to check.
 --
 -- @treturn  boolean              Returns true if value is an array, else false.
+--
+-- @usage
+-- u.is_array({})
+-- -- => true
+--
+-- u.is_array({1, 2, 3})
+-- -- => true
+--
+-- u.is_array({ hello = "world" })
+-- -- => false
+--
+-- u.is_array("umka")
+-- -- => false
 function u.is_array(value)
   if type(value) ~= "table" then
     return false
@@ -120,6 +169,13 @@ end
 -- @tparam    any[][]  ...           The source arrays.
 --
 -- @treturn   any[]                  Returns array.
+--
+-- @usage
+-- u.merge_arrays({1, 2, 3}, {4, 5})
+-- -- => {1, 2, 3, 4, 5}
+--
+-- u.merge_arrays({1, 2, 3}, {4, 5}, {"hello"}, {1})
+-- -- => {1, 2, 3, 4, 5, "hello", 1}
 function u.merge_arrays(main_array, ...)
   -- Walk arrays
   for i = 1, select("#", ...) do
@@ -139,6 +195,13 @@ end
 -- @tparam  table[]   ...               The source objects.
 --
 -- @treturn table                       Returns object.
+--
+-- @usage
+-- u.merge_objects({hello = "world"}, {where = "there"})
+-- -- => {hello = "world", where = "there"}
+--
+-- u.merge_objects({hello = "world"}, {where = "there"}, {hello = "no"})
+-- -- => {hello = "no", where = "there"}
 function u.merge_objects(main_object, ...)
   -- Walk objects
   for i = 1, select("#", ...) do
@@ -162,6 +225,19 @@ end
 -- @tparam table[]      ...           The source tables.
 --
 -- @treturn table                     Returns table.
+--
+-- @usage
+-- u.merge({hello = "world"}, {where = "there"})
+-- -- => {hello = "world", where = "there"}
+--
+-- u.merge({hello = "world"}, {where = "there"}, {hello = "no"})
+-- -- => {hello = "no", where = "there"}
+--
+-- u.merge({1, 2, 3}, {hello = "world"})
+-- -- => {[1] = 1, [2] = 2, [3] = 3, hello = "world"}
+--
+-- u.merge({hello = "world"}, {4, 5, 6})
+-- -- => {[1] = 4, [2] = 5, [3] = 6, hello = "world"}
 function u.merge(main_table, ...)
   local is_arr = true
 
@@ -191,6 +267,13 @@ end
 -- @tparam    any    value      The value to search for.
 --
 -- @treturn   boolean           Returns true if value exists, else false.
+--
+-- @usage
+-- u.in_array({1, 2, 3}, 3)
+-- -- => true
+--
+-- u.in_array({1, 2, 3}, 7)
+-- -- => false
 function u.in_array(arr, value)
   for k, v in ipairs(arr) do
     if v == value then return true end
@@ -204,6 +287,13 @@ end
 -- @tparam    string|number  key          The key to search for.
 --
 -- @treturn   boolean                     Returns true if key exists, else false.
+--
+-- @usage
+-- u.in_object({hello = "world", where = "there"}, "hello")
+-- -- => true
+--
+-- u.in_object({hello = "world", where = "there"}, "umka")
+-- -- => false
 function u.in_object(object, key)
   for k, v in pairs(object) do
     if k == key then return true end
@@ -217,6 +307,19 @@ end
 -- @tparam   any            i     The key or value to search for.
 --
 -- @treturn  boolean              Returns true if key or value exists, else false.
+--
+-- @usage
+-- u.in_table({1, 2, 3}, 3)
+-- -- => true
+--
+-- u.in_table({1, 2, 3}, 7)
+-- -- => false
+--
+-- u.in_table({hello = "world", where = "there"}, "hello")
+-- -- => true
+--
+-- u.in_table({hello = "world", where = "there"}, 1)
+-- -- => false
 function u.in_table(t, i)
   if u.is_array(t) then
     return u.in_array(t, i)
