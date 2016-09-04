@@ -33,7 +33,6 @@ script:
 after_success:
   - luacov-coveralls --exclude spec --exclude $TRAVIS_BUILD_DIR/install
 
-
 branches:
   except:
     - gh-pages
