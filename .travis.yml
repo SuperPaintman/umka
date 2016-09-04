@@ -15,11 +15,14 @@ env:
 
 before_install:
   - source .travis/setenv_lua.sh
+  - luarocks install luacheck
   - luarocks install busted
   - luarocks install moonscript
 
 before_script:
+  - luacheck --version
   - busted --version
 
 script:
+  - luacheck --no-unused-args --std max+busted *.lua spec
   - busted -o TAP
