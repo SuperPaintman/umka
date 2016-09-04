@@ -173,9 +173,9 @@ function u.merge(main_table, ...)
   end
 
   if is_arr then
-    return u.merge_array(main_table, unpack({...}))
+    return u.merge_array(main_table, ...)
   else
-    return u.merge_object(main_table, unpack({...}))
+    return u.merge_object(main_table, ...)
   end
 end
 
