@@ -363,3 +363,42 @@ for k, func in pairs({
                 }, {
                     [1]: "six"
                 })
+
+describe "in_array()", ->
+    it "should return `true` if value in array", ->
+        assert.is_true u.in_array({
+            1, 2, 3, 4, 5
+        }, 1)
+
+        assert.is_true u.in_array({
+            1, 2, 3, "hello", 5
+        }, "hello")
+
+        assert.is_true u.in_array({
+            1, 2, 3, "hello", 5, true
+        }, true)
+
+    it "should return `false` if value not in array", ->
+        assert.is_false u.in_array({
+            1, 2, 3, 4, 5
+        }, 6)
+
+        assert.is_false u.in_array({
+            1, 2, 3, "hello", 5
+        }, "world")
+
+        assert.is_false u.in_array({
+            1, 2, 3, "hello", 5, true
+        }, false)
+
+        assert.is_false u.in_array({
+            1, 2, 3, "hello", 5, true
+        }, nil)
+
+        assert.is_false u.in_array({
+            1, 2, 3, "hello", 5, true
+        })
+
+        assert.is_false u.in_array({
+            1, 2, 3, "hello", {5}, true
+        }, 5)
